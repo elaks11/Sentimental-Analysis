@@ -1,0 +1,63 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<body style="background-image: url('/static/hello.jpg');">
+<div class="container" >
+    <h1>  
+        Sentimental Analysis
+    </h1>
+
+      <form action="http://localhost:5000/result" method="POST" class="form-horizontal">
+          <div class="form-group">
+      <label class="control-label col-sm-2" >Enter Input Here</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="nameInput" {{data.buttonDisable}} value="{{data.value}}">
+      </div>
+    </div>
+     <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary" value="submit"{{data.buttonDisable}}>Submit</button>
+      </div>
+    </div>
+
+
+      </form>
+{% if  data.isDisplay %}
+<table class="table">
+
+  <tbody>
+    <tr>
+      <th scope="row">Positive Value</th>
+      <td>{{data.pvalue}}</td>
+
+    </tr>
+    <tr>
+      <th scope="row">Negative Value</th>
+      <td>{{data.nvalue}}</td>
+
+    </tr>
+  <tr>
+      <th scope="row">Neutral Value</th>
+      <td>{{data.nnvalue}}</td>
+
+    </tr>
+  <tr>
+      <th scope="row"></th>
+      <td></td>
+  </tr>
+
+  </tbody>
+</table>
+{% endif %}
+
+
+</div>
+
+</body>
+
+</html>
